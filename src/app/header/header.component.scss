@@ -1,0 +1,95 @@
+/* ---- TOP BAR ---- */
+.top-bar {
+  background: #8cc63f;
+  color: white;
+  border-radius: 0 0 40px 40px;
+  font-size: 14px;
+}
+
+.bar-link {
+  color: white;
+  text-decoration: none;
+}
+
+.bar-link:hover {
+  text-decoration: underline;
+}
+
+/* ---- NAVBAR ---- */
+.logo-text {
+  font-size: 26px;
+  font-weight: 700;
+  color: #80c41c;
+}
+
+/* For desktop */
+@media (min-width: 768px) {
+  .logo-text {
+    font-size: 32px;
+  }
+}
+
+.nav-link {
+  color: #666 !important;
+  padding: 10px 15px;
+}
+
+.nav-link:hover,
+.active-menu {
+  color: #80c41c !important;
+  font-weight: 600;
+}
+
+/* ---- ICONS ---- */
+.icon-circle {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #ffb100;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-square {
+  width: 34px;
+  height: 34px;
+  border: 2px solid #80c41c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icons i {
+  font-size: 20px;
+  color: #80c41c;
+}
+
+.badge-circle {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #ffb100;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-size: 12px;
+}
+
+/* MOBILE RESPONSIVE ADJUSTMENTS */
+@media (max-width: 767px) {
+  .navbar-nav {
+    background: #f9f9f9;
+    padding: 10px 0;
+    border-radius: 8px;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .icons {
+    padding-bottom: 10px;
+  }
+}
