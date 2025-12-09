@@ -15,6 +15,8 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { CartSummaryComponent } from './cart-summary/cart-summary.component';
+import { ToastComponent } from './toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { FooterComponent } from './footer/footer.component';
     HomeComponent,
     AboutComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    CartSummaryComponent,
+    ToastComponent
     // other components will be declared by generators
   ],
   imports: [

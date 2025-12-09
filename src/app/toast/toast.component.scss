@@ -1,0 +1,37 @@
+/* src/app/shared/toast/toast.component.css */
+.toast-wrapper {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  z-index: 2000;
+  max-width: 320px;
+}
+
+.toast-card {
+  background: rgb(145, 245, 145);
+  color:black;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  overflow: hidden;
+  animation: slideIn .18s ease-out;
+//   border-left: 4px solid #0d6efd;
+}
+
+.toast-body {
+  padding: 10px 12px;
+  font-size: 14px;
+}
+
+/* small slide in */
+@keyframes slideIn {
+  from { transform: translateY(-6px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* mobile tweak */
+@media (max-width: 576px) {
+  .toast-wrapper { left: 0.6rem; right: 0.6rem; top: 0.6rem; }
+}

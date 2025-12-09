@@ -1,0 +1,38 @@
+<div class="card mt-4">
+    <div class="card-body">
+        <h4>Cart Summary</h4>
+
+        <p *ngIf="items.length === 0">No items selected.</p>
+
+        <ul *ngIf="items.length > 0" class="list-group mb-3">
+
+            <li class="list-group-item" *ngFor="let item of items">
+
+                <div class="d-flex justify-content-between">
+                    <strong>{{ item.name }}</strong>
+                    ₹ {{ item.qty * item.price }}
+                </div>
+
+                <small>{{ item.qty }} × ₹{{ item.price }}</small>
+
+                <div class="mt-2 d-flex justify-content-between">
+                    <div>
+                        <button class="btn btn-danger btn-sm" (click)="decrease(item)">-</button>
+                        <span class="mx-2 fw-bold">{{ item.qty }}</span>
+                        <button class="btn btn-success btn-sm" (click)="increase(item)">+</button>
+                    </div>
+
+                    <button class="btn btn-outline-danger btn-sm" (click)="remove(item)">
+                        Remove
+                    </button>
+                </div>
+
+            </li>
+
+        </ul>
+
+        <h5 *ngIf="items.length > 0" class="text-end">
+            Total: ₹ {{ totalPrice }}
+        </h5>
+    </div>
+</div>

@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import { CartSummaryComponent } from './cart-summary/cart-summary.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'header', component: HeaderComponent },
   { path: 'footer', component: FooterComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'cart', component: CartSummaryComponent },
   { path: '**', redirectTo: '' }
 ];
 
