@@ -42,7 +42,7 @@ sendWhatsAppOrder() {
   message += `💰 *Total:* ₹${this.totalPrice}%0A%0A`;
   message += `📍 *Delivery Address:*%0A${this.address}`;
 
-  const phoneNumber = '919560389445'; // ← replace with your WhatsApp number
+  const phoneNumber = '919760820826'; // ← replace with your WhatsApp number
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 
   window.open(whatsappUrl, '_blank');
