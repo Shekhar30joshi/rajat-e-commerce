@@ -17,6 +17,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { CartSummaryComponent } from './cart-summary/cart-summary.component';
 import { ToastComponent } from './toast/toast.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ToastComponent } from './toast/toast.component';
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

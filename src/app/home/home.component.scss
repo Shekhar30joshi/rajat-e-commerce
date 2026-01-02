@@ -258,6 +258,34 @@
     overflow-x: visible;
   }
 }
+.banner-card {
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+.banner-label {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #28a745;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  z-index: 10;
+}
+
+.carousel img {
+  height: 300px;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .carousel img {
+    height: 220px;
+  }
+}
 
 
 .product-card {

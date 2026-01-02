@@ -8,7 +8,7 @@ import { CartSummaryComponent } from './cart-summary/cart-summary.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
+  { path: 'about-us', component: AboutComponent },
   { path: 'header', component: HeaderComponent },
   { path: 'footer', component: FooterComponent },
   { path: 'home', component: HomeComponent },
