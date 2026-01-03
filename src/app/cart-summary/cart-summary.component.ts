@@ -11,6 +11,9 @@ export class CartSummaryComponent implements OnInit {
 
   items: any[] = [];
   address: string = '';
+  paymentMethod: string = '';
+  customerName: string = '';
+
 
 constructor(private cartService: CartService, private toast : ToastService) {}
 
@@ -27,24 +30,68 @@ get totalPrice() {
 }
 
 sendWhatsAppOrder() {
-  if (!this.address.trim()) {
-    this.toast.show('Please enter delivery address',3000);
+
+  // Name validation
+  if (!this.customerName.trim()) {
+    this.toast.show('Please enter your name', 3000);
     return;
   }
 
-  let message = `🛒 *New Order*%0A%0A`;
+  // Address validation
+  if (!this.address.trim()) {
+    this.toast.show('Please enter delivery address', 3000);
+    return;
+  }
+
+  // Payment validation ONLY for mobile
+  if (this.isMobile() && !this.paymentMethod) {
+    this.toast.show('Please select payment method', 3000);
+    return;
+  }
+
+  // WhatsApp message
+  let message = `🛒 *New Order*%0A`;
+  message += `👤 *Customer:* ${this.customerName}%0A%0A`;
 
   this.items.forEach((item: any, index: number) => {
     message += `${index + 1}. ${item.name}%0A`;
-    message += `   Qty: ${item.qty} × ₹${item.price} = ₹${item.qty * item.price}%0A%0A`;
+    message += `Qty: ${item.qty} × ₹${item.price} = ₹${item.qty * item.price}%0A%0A`;
   });
 
-  message += `💰 *Total:* ₹${this.totalPrice}%0A%0A`;
-  message += `📍 *Delivery Address:*%0A${this.address}`;
+  message += `💰 *Total:* ₹${this.totalPrice}%0A`;
 
-  const phoneNumber = '919760820826'; // ← replace with your WhatsApp number
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+  if (this.isMobile()) {
+    message += `💳 *Payment:* ${this.paymentMethod}%0A%0A`;
+  } else {
+    message += `💳 *Payment:* To be discussed on WhatsApp%0A%0A`;
+  }
 
-  window.open(whatsappUrl, '_blank');
+  message += `📍 *Address:*%0A${this.address}`;
+
+  const phone = '919560389445';
+  window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+
+  // Trigger UPI ONLY on mobile + non-COD
+  if (this.isMobile() && this.paymentMethod !== 'COD') {
+    this.payWithUPI();
+  }
 }
+
+
+isMobile(): boolean {
+  return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+}
+
+
+payWithUPI() {
+  const upiId = '9560389445@ybl';
+  const name = 'My Veg Store';
+  const amount = this.totalPrice;
+
+  const upiUrl =
+    `upi://pay?pa=${upiId}&pn=${encodeURIComponent(name)}&am=${amount}&cu=INR`;
+
+  window.location.href = upiUrl;
+}
+
 }
