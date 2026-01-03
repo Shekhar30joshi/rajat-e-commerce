@@ -67,6 +67,11 @@ sendWhatsAppOrder() {
   }
 
   message += `📍 *Address:*%0A${this.address}`;
+  const upiLink =
+  `upi://pay?pa=9560389445@ybl&pn=My Veg Store&am=${this.totalPrice}&cu=INR`;
+
+  message += `%0A💸 *Pay using UPI:*%0A${encodeURIComponent(upiLink)}`;
+
 
   const phone = '919560389445';
   window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
